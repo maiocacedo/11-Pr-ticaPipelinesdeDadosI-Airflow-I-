@@ -7,21 +7,21 @@ from airflow.operators.dummy_operator import DummyOperator
 from datetime import datetime, timedelta
 
 default_args = {
-    'start_date': datetime(2019, 1, 1),  # Data de início da DAG
+    'start_date': datetime(2025, 1, 1),  # Data de início da DAG
     'owner': 'Airflow'  # Proprietário da DAG
 }
 
 # Tarefa dummy para representar uma tarefa que não faz nada
 
 def second_task():
-    print('Hello from second_task')  # Mensagem de saída da segunda tarefa
+    print('Olá do segundo task')  # Mensagem de saída da segunda tarefa
     # raise ValueError('Isso transformará a tarefa Python em estado de falha')
 
 def third_task():
-    print('Hello from third_task')  # Mensagem de saída da terceira tarefa
+    print('Olá da terceira task')  # Mensagem de saída da terceira tarefa
     # raise ValueError('Isso transformará a tarefa Python em estado de falha')
 
-with DAG(dag_id='depends_task', schedule_interval="0 0 * * *", default_args=default_args) as dag:
+with DAG(dag_id='depends_task', schedule_interval="3 4 * * *", default_args=default_args) as dag:
     
     # Task
     # 1

@@ -5,14 +5,15 @@ from airflow.operators.python_operator import PythonOperator
 from datetime import datetime, timedelta
 
 def first_task():
-    print("Hello from first task")
+    print("Olá do primeiro task")
 
 def second_task():
-    print("Hello from second task")
+    print("Olá do segundo task")
 
 def third_task():
-    print("Hello from third task")
+    print("Olá do terceiro task")
 
+# Definindo os argumentos padrão
 default_args = {
     'start_date': datetime(2019, 1, 1),
     'owner': 'Airflow'

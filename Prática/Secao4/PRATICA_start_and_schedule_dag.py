@@ -19,9 +19,14 @@ with DAG(dag_id='start_and_schedule_dag', schedule_interval="0 3 * * 5", default
     # Task 2
     dummy_task_2 = DummyOperator(task_id='dummy_task_2')
     
+    dummy_task_3 = DummyOperator(task_id='dummy_task_2')
+    
     # Dependências
-    dummy_task_1 >> dummy_task_2
-
+    dummy_task_1 >> dummy_task_2 >> dummy_task_3
+    
+    # Dependências
+    dummy_task_1 >> dummy_task_3
+    
     # Inicia a DAG    
     run_dates = dag.get_run_dates(start_date=dag.start_date)
     next_execution_date = run_dates[-1] if len(run_dates) != 0 else None

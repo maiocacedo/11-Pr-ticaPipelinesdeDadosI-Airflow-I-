@@ -11,12 +11,12 @@ default_args = {
 }
 
 # Definindo a DAG
-with DAG(dag_id='backfill', schedule_interval="0 0 * * *", default_args=default_args, catchup=True) as dag:
+with DAG(dag_id='backfill', schedule_interval="0 3 * * 2", default_args=default_args, catchup=True) as dag:
     
     # Task 1
-    bash_task_1 = BashOperator(task_id='bash_task_1', bash_command="echo 'first task'") # task bash_task_1
+    bash_task_1 = BashOperator(task_id='bash_task_1', bash_command="echo 'Primeira task'") # task bash_task_1
     
     # Task 2
-    bash_task_2 = BashOperator(task_id='bash_task_2', bash_command="echo 'second task'") # task bash_task_2
+    bash_task_2 = BashOperator(task_id='bash_task_2', bash_command="echo 'Segunda task'") # task bash_task_2
 
     bash_task_1 >> bash_task_2 # Definindo a ordem de execução das tasks
